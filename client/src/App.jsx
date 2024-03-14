@@ -14,7 +14,10 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+const httpLink = createHttpLink({
+  uri: '/graphql',
+  // uri: location.href.includes('localhost') ? 'http://localhost:3001/graphql' : 'insert production server uri here',
+});
 
 function App() {
   return (
